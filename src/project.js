@@ -1,16 +1,16 @@
 import {Todo} from "./todo";
 
 export const Project = () => {
-  todos = [];
+  let todos = [];
   const addTodo = (todo) => {
     todos.push(todo);
   };
 
   const printProject = () => {
     todos.forEach((index) => {
-      todos[index].printTodo();
+      index.printTodo();
     });
   };
 
-  return {todos, addTodo};
+  return {todos, addTodo, printProject};
 };
