@@ -15,7 +15,7 @@ export const Project = (name) => {
   }
 
   const printProject = () => {
-    console.log(projectName);
+    console.log(`Project Title: ${projectName}`);
     todos.forEach((todo) => {
       todo.printTodo();
     });
@@ -25,5 +25,39 @@ export const Project = (name) => {
     });
   };
 
-  return {todos, addTodo, addProject,printProject};
+  const printNotCompleted = () => {
+    console.log(`Project Title: ${projectName}`);
+    todos.forEach((todo) => {
+      if(!todo.isComplete())
+        todo.printTodo();
+    });
+
+    projects.forEach((project) => {
+      project.printNotCompleted();
+    });
+  };
+
+  const removeCompleted = () => {
+    //remove todo from the array
+    // todos.forEach((todo, i) => {
+    //   if(todo.isComplete())
+    //       todos.splice(i, 1);
+    // });
+    for (let i = 0; i < todos.length; i++)
+    {
+      const todo = todos[i];
+      if(todo.isComplete())
+      {
+        //decrement to prevent skipping index
+        todos.splice(i--, 1);
+      }
+    }
+
+    projects.forEach((project) => {
+      project.removeCompleted();
+    });
+  };
+
+  return {todos, addTodo, addProject,printProject, printNotCompleted, removeCompleted};
 };
+

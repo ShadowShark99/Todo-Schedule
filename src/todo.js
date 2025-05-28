@@ -8,8 +8,7 @@ export const Todo = (t, de, du, p) => {
   let completed = false;
 
   const printTodo = () => {
-    if(!isComplete())
-      console.log(`${title}${description}${dueDate}${priority}`);
+    console.log(`${title}${description}${dueDate}${priority}`);
   };
 
   const changePriority = (newPriority) => {
