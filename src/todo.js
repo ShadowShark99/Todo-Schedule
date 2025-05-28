@@ -4,12 +4,25 @@ export const Todo = (t, de, du, p) => {
   const title = t;
   const description = de;
   const dueDate = du;
-  const priority = p;
-  const completed = false;
+  let priority = p;
+  let completed = false;
 
   const printTodo = () => {
-    console.log(`${title}${description}${dueDate}${priority}`);
+    if(!isComplete())
+      console.log(`${title}${description}${dueDate}${priority}`);
   };
 
-  return {printTodo, completed};
+  const changePriority = (newPriority) => {
+    priority = newPriority;
+  };
+
+  const toggleCompleted = () =>{
+    completed = !completed;
+  };
+
+  const isComplete = () => {
+    return completed;
+  };
+
+  return {printTodo, completed, changePriority, toggleCompleted, isComplete};
   };
