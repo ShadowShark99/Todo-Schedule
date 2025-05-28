@@ -1,6 +1,9 @@
 import {Todo} from "./todo";
 import {Project} from "./project";
-const template = Todo("Title", "description", 0, 1);
+import {compareAsc, format} from "date-fns"
+
+const templateDate = format(new Date(2020, 1, 11), "yyyy-MM-dd");
+const template = Todo("Title", "description", templateDate, 1);
 //todo1.printTodo();
 const defaultProject = Project("Day Schedule");
 defaultProject.addTodo(template);
@@ -15,5 +18,6 @@ subProject.addTodo(Todo("Call Victoria", "Hi victoria", 0, 1));
 defaultProject.addProject(subProject);
 
 defaultProject.printProject();
+
 
 alert("balls");
