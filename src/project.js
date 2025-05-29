@@ -6,6 +6,10 @@ export const Project = (name) => {
   let projects = [];
   const projectName = name;
 
+  const getProjectName = () => projectName;
+  const getTodos = () => todos;
+  const getProjects = () => projects;
+
   const addTodo = (todo) => {
     todos.push(todo);
   };
@@ -58,6 +62,6 @@ export const Project = (name) => {
     });
   };
 
-  return {todos, addTodo, addProject,printProject, printNotCompleted, removeCompleted};
+  return {todos, addTodo, addProject,printProject, printNotCompleted, removeCompleted, getProjectName, getTodos, getProjects};
 };
 

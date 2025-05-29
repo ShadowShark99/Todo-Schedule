@@ -1,6 +1,7 @@
 import {Todo} from "./todo";
 import {Project} from "./project";
 import {compareAsc, format} from "date-fns"
+import {DisplayController} from "./display"
 
 const templateDate = format(new Date(2020, 1, 11), "yyyy-MM-dd");
 const template = Todo("Title", "description", templateDate, 1);
@@ -25,5 +26,7 @@ defaultProject.addProject(subProject);
 defaultProject.removeCompleted();
 defaultProject.printProject();
 //defaultProject.printNotCompleted();
+const display = DisplayController();
+display.display(defaultProject);
 
 alert("balls");

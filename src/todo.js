@@ -7,6 +7,10 @@ export const Todo = (t, de, du, p) => {
   let priority = p;
   let completed = false;
 
+  const getTitle = () => title;
+  const getDescription = () => description;
+  const getDueDate = () => dueDate;
+
   const printTodo = () => {
     console.log(`${title}${description}${dueDate}${priority}`);
   };
@@ -23,5 +27,5 @@ export const Todo = (t, de, du, p) => {
     return completed;
   };
 
-  return {printTodo, completed, changePriority, toggleCompleted, isComplete};
+  return {printTodo, completed, changePriority, toggleCompleted, isComplete, getTitle, getDescription, getDueDate};
   };
