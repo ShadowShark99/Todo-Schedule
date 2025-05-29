@@ -4,10 +4,11 @@ import {Project} from "./project";
 import {compareAsc, format} from "date-fns"
 import {DisplayController} from "./display"
 import {AddTask} from "./addTask"
+import { RootProject } from "./rootProject";
 
 //implement add-task button functionality
 AddTask();
-const rootProject = Project("Username");
+const rootProject = RootProject().getInstance();
 let selectedProject = rootProject;
 const templateDate = format(new Date(2020, 1, 11), "yyyy-MM-dd");
 const template = Todo("Title", "description", templateDate, 1);
@@ -31,9 +32,11 @@ defaultProject.addProject(subProject);
 
 defaultProject.removeCompleted();
 defaultProject.printProject();
+
+rootProject.addProject(defaultProject);
 //defaultProject.printNotCompleted();
 const display = DisplayController();
-display.display(defaultProject);
+display.display(rootProject);
 //initiate the project selector which says what project the user will edit.
 
 alert("balls");
