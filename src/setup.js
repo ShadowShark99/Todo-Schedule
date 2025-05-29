@@ -1,5 +1,13 @@
+import "./styles.css";
+import {Todo} from "./todo";
+import {Project} from "./project";
+import {compareAsc, format} from "date-fns"
+import {DisplayController} from "./display"
+import {AddTask} from "./addTask"
+import { RootProject } from "./rootProject";
+
 export const SetUp = () => {
-  const rootProject = RootProject().getInstance();
+  const rootProject = RootProject.getInstance();
 let selectedProject = rootProject;
 const templateDate = format(new Date(2020, 1, 11), "yyyy-MM-dd");
 const template = Todo("Title", "description", templateDate, 1);
@@ -22,7 +30,7 @@ subProject.addTodo(Todo("Call Victoria", "Hi victoria", 0, 1));
 defaultProject.addProject(subProject);
 
 defaultProject.removeCompleted();
-defaultProject.printProject();
+//defaultProject.printProject();
 
 rootProject.addProject(defaultProject);
 //defaultProject.printNotCompleted();

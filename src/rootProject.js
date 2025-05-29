@@ -1,6 +1,11 @@
 import { Project } from "./project";
 
-export const RootProject = () => {
+const RP = (project) => {
+  let rp = project;
+  return rp;
+}
+
+export const RootProject = (() => {
   let rp = null;
   const getInstance = () => {
     if(rp == null)
@@ -10,4 +15,4 @@ export const RootProject = () => {
     return rp;
   };
   return{getInstance};
-};
+})();

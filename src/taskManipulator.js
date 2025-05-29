@@ -1,12 +1,13 @@
 
-const TM = () => {
-  
-};
 
 //has access to a project to add or remove tasks/inner projects
-export const TaskManipulator = () => {
+export const TaskManipulator = (() => {
+  function TM(){
+    
+  }
+
   //private
-  let instance = null;
+  var instance;
 
   //public (returned)
   const getInstance = () => {
@@ -16,4 +17,4 @@ export const TaskManipulator = () => {
     }
     return instance;
   };
-};
+})();

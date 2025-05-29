@@ -1,6 +1,8 @@
 import {Project} from "./project"
 import {Todo} from "./todo"
+import { SelectedProject} from "./selectedProject"
 
+//aggregation of display functionality
 export const DisplayController = () => {
   
   //return div with project DOM elements

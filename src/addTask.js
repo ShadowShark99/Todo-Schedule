@@ -11,6 +11,6 @@ export const AddTask = () => {
       buttonParent.insertBefore(TaskForm(), addTaskButton.nextSibling);
     else
       buttonParent.removeChild(addTaskButton.nextSibling);
-    alert("poop");
+    
   });
 };
