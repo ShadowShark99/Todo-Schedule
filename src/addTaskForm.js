@@ -17,13 +17,15 @@ export const TaskForm = () => {
   const titleInput = document.createElement("input");
 
   //button functionality
-  addTodo.addEventListener("click", () => {
+  addProject.addEventListener("click", () => {
     //it makes a new root folder :( 
     let p = SelectedProject.getInstance();
     let newProject = Project(titleInput.value);
     p.addProject(newProject);
     p.printProject();
     DisplayController().display(p);
+    //set SelectedProject to new folder?
+    SelectedProject.setProject(newProject);
     
   });
 

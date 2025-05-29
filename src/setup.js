@@ -14,6 +14,8 @@ const template = Todo("Title", "description", templateDate, 1);
 template.toggleCompleted();
 //todo1.printTodo();
 const defaultProject = Project("Day Schedule");
+//default project starts open!
+defaultProject.toggleOpen();
 defaultProject.addTodo(template);
 const wakeUpTodo = Todo("Wake up", "at 8am", 0, 1);
 

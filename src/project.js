@@ -10,6 +10,10 @@ export const Project = (name) => {
   const getTodos = () => todos;
   const getProjects = () => projects;
 
+  //all projects should be closed initially
+  let open = false;
+  const isOpen = () => open;
+
   const addTodo = (todo) => {
     todos.push(todo);
   };
@@ -62,6 +66,26 @@ export const Project = (name) => {
     });
   };
 
-  return {todos, addTodo, addProject,printProject, printNotCompleted, removeCompleted, getProjectName, getTodos, getProjects};
+  const recursiveClose = ()=>{
+    open = false;
+    projects.forEach((project) => {
+      project.reccursiveClose();
+    });
+  };
+
+  //it is important
+  const toggleOpen = () =>{
+    if(open)
+    {
+      recursiveClose();
+    }
+    else
+    {
+      open = true;
+    }
+
+  };
+
+  return {todos, addTodo, addProject,printProject, printNotCompleted, removeCompleted, getProjectName, getTodos, getProjects, isOpen,toggleOpen};
 };
 

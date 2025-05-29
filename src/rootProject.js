@@ -11,6 +11,8 @@ export const RootProject = (() => {
     if(rp == null)
     {
       rp = Project("Username");
+      //root project should always remain open
+      rp.toggleOpen();
     }
     return rp;
   };
