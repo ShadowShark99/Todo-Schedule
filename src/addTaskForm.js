@@ -1,6 +1,7 @@
 import {SelectedProject} from "./selectedProject";
 //import { RootProject } from "./rootProject";
 import { Project } from "./project";
+import {Todo} from "./todo";
 import { DisplayController } from "./display";
 
 export const TaskForm = () => {
@@ -19,17 +20,41 @@ export const TaskForm = () => {
   //button functionality
   addProject.addEventListener("click", () => {
     //it makes a new root folder :( 
-    let p = SelectedProject.getInstance();
+    let sp = SelectedProject.getInstance();
     let newProject = Project(titleInput.value);
     //automatically set to open
     newProject.toggleOpen();
-    p.addProject(newProject);
-    p.printProject();
+    sp.addProject(newProject);
     SelectedProject.setProject(newProject);
-    DisplayController.display(p);
+    DisplayController.display();
     //set SelectedProject to new folder?
     
     
+  });
+
+  addTodo.addEventListener("click", () => {
+    form.innerHTML = "";
+    //4 inputs and 1 submit
+    const title = document.createElement("input");
+    const description = document.createElement("input");
+    const date = document.createElement("input");
+    const priority = document.createElement("input");
+    const addButton = document.createElement("button");
+    addButton.innerHTML = "add";
+    addButton.addEventListener("click", () =>{
+
+      sp.addTodo(Todo(title.value, description.value, date.value, priority.value));
+      DisplayController.display();
+    });
+    let sp = SelectedProject.getInstance();
+    form.appendChild(title);
+    form.appendChild(description);
+    form.appendChild(date);
+    form.appendChild(priority);
+    form.appendChild(addButton);
+    
+
+
   });
 
   //add buttons
