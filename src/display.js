@@ -29,7 +29,7 @@ export const DisplayController = () => {
 
   const display = (p) => {
     console.log('displayed');
-    document.querySelector("body").appendChild(projectDisplay(p));
+    document.querySelector(".root-project").appendChild(projectDisplay(p));
   };
   return {display};
 };
