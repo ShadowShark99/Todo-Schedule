@@ -5,7 +5,7 @@ import { DisplayController } from "./display";
 
 export const TaskForm = () => {
   const form = document.createElement("div");
-  form.classList.toggle(".task-form");
+  form.classList.toggle("task-form");
 
   //buttons
   const addTodo = document.createElement("button");

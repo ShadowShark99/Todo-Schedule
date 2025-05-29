@@ -69,7 +69,6 @@ export const Project = (name) => {
   //call recursiveClose on child projects
   const recursiveClose = ()=>{
     open = false;
-    console.log("closing this project");
     projects.forEach((project) => {
       project.recursiveClose();
     });

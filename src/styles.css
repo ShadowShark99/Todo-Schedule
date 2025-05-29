@@ -28,3 +28,7 @@ body{
   position: absolute;
   color:blue;
 }
+
+.selected{
+  border: 10px solid rgb(97, 122, 133);
+}
