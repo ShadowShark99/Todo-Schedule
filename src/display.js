@@ -5,7 +5,7 @@ import { RootProject } from "./rootProject";
 import { ProjectNode} from "./projectNode";
 
 //aggregation of display functionality
-export const DisplayController = () => {
+export const DisplayController = (() => {
   
   //return div with project DOM elements
   const projectDisplay = (project) => {
@@ -22,8 +22,10 @@ export const DisplayController = () => {
   //default display will display folders that are open
   const display = () => {
     //always start from the root
+    const projects = document.querySelector(".projects");
     const rp = RootProject.getInstance();
-    document.querySelector(".projects").appendChild(projectDisplayOpen(rp));
+    projects.innerHTML = "";
+    projects.appendChild(projectDisplayOpen(rp));
   };
   return {display};
-};
+})();

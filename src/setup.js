@@ -36,8 +36,7 @@ defaultProject.removeCompleted();
 
 rootProject.addProject(defaultProject);
 //defaultProject.printNotCompleted();
-const display = DisplayController();
-display.display(rootProject);
+DisplayController.display(rootProject);
 //initiate the project selector which says what project the user will edit.
 
 alert("balls");

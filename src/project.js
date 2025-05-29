@@ -66,14 +66,16 @@ export const Project = (name) => {
     });
   };
 
+  //call recursiveClose on child projects
   const recursiveClose = ()=>{
     open = false;
+    console.log("closing this project");
     projects.forEach((project) => {
-      project.reccursiveClose();
+      project.recursiveClose();
     });
   };
 
-  //it is important
+  //it is important to close all other folders in environment
   const toggleOpen = () =>{
     if(open)
     {
@@ -86,6 +88,6 @@ export const Project = (name) => {
 
   };
 
-  return {todos, addTodo, addProject,printProject, printNotCompleted, removeCompleted, getProjectName, getTodos, getProjects, isOpen,toggleOpen};
+  return {todos, addTodo, addProject,printProject, printNotCompleted, removeCompleted, getProjectName, getTodos, getProjects, isOpen,toggleOpen, recursiveClose};
 };
 

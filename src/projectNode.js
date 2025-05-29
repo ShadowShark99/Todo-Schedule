@@ -1,10 +1,16 @@
 import {Project} from "./project"
-
+import { DisplayController } from "./display";
 //onlyOpen is whether it wants to display only open folders
 export const ProjectNode = (project, onlyOpen) => {
   const projectDiv = document.createElement('div');
   const projectTitle = document.createElement('h3');
   projectTitle.innerHTML = project.getProjectName();
+  //add toggle open functionality to DOM element
+  projectTitle.addEventListener("click", () => {
+    project.toggleOpen();
+    DisplayController.display();
+  });
+
 
   const projectList = document.createElement('ul');
   //add todos if the project is open
