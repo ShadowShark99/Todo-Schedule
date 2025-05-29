@@ -21,11 +21,14 @@ export const TaskForm = () => {
     //it makes a new root folder :( 
     let p = SelectedProject.getInstance();
     let newProject = Project(titleInput.value);
+    //automatically set to open
+    newProject.toggleOpen();
     p.addProject(newProject);
     p.printProject();
-    DisplayController().display(p);
-    //set SelectedProject to new folder?
     SelectedProject.setProject(newProject);
+    DisplayController.display(p);
+    //set SelectedProject to new folder?
+    
     
   });
 

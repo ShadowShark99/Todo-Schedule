@@ -30,5 +30,5 @@ body{
 }
 
 .selected{
-  border: 10px solid rgb(97, 122, 133);
+  border: 1px solid rgb(97, 122, 133);
 }
