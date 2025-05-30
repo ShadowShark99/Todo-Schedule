@@ -47,10 +47,12 @@ export const TaskForm = () => {
     date.addEventListener('keypress', (e) => {
       const date0 = date.value;
       const size = date0.length;
+      if(size == 10)
+        e.preventDefault();
       //e.target.value = `${date0}-`;
       console.log(`${e.key} pressed with length ${size}`);
-         if (isNaN(parseInt(e.key)) && e.key !== 'Backspace' && e.key !== 'Tab' && e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') 
-           e.preventDefault();
+      if (isNaN(parseInt(e.key)) && e.key !== 'Backspace' && e.key !== 'Tab' && e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') 
+        e.preventDefault();
       if(size == 2 || size == 5)
       {
         console.log("input -");
@@ -58,6 +60,19 @@ export const TaskForm = () => {
       }
       
     
+    });
+
+    priority.addEventListener('keypress', (e) => {
+      const size = e.target.value.length;
+      const priority0 = parseInt(e.target.value);
+      if (isNaN(parseInt(e.key)) && e.key !== 'Backspace' && e.key !== 'Tab' && e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') 
+        e.preventDefault();
+      if(size)
+      {
+        if(priority0 > 1 || parseInt(e.key) || priority0 == 0)
+          e.preventDefault();
+
+      }
     });
 
 
