@@ -9,7 +9,9 @@ export const Todo = (t, de, du, p) => {
 
   const getTitle = () => title;
   const getDescription = () => description;
+  //refactor dueDate to store Date object and return a format string to accessors!
   const getDueDate = () => dueDate;
+  const getPriority = () => priority;
 
   const printTodo = () => {
     console.log(`${title}${description}${dueDate}${priority}`);
@@ -27,5 +29,5 @@ export const Todo = (t, de, du, p) => {
     return completed;
   };
 
-  return {printTodo, completed, changePriority, toggleCompleted, isComplete, getTitle, getDescription, getDueDate};
+  return {printTodo, completed, changePriority, toggleCompleted, isComplete, getTitle, getDescription, getDueDate, getPriority};
   };

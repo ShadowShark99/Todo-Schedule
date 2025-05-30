@@ -32,3 +32,14 @@ body{
 .selected{
   border: 1px solid rgb(97, 122, 133);
 }
+
+.todo-node{
+  display: grid;
+  grid-template-columns: 1fr 100px;
+  align-items: center;
+  
+}
+
+.todo-node > div{
+  font-family: 'Courier New', Courier, monospace;
+}

@@ -1,6 +1,7 @@
 import {Project} from "./project"
 import { DisplayController } from "./display";
 import { SelectedProject } from "./selectedProject";
+import { TodoNode } from "./todoNode";
 //onlyOpen is whether it wants to display only open folders
 export const ProjectNode = (project, onlyOpen) => {
   const projectDiv = document.createElement('div');
@@ -26,7 +27,7 @@ export const ProjectNode = (project, onlyOpen) => {
   if(!onlyOpen || project.isOpen())
     project.todos.forEach((todo) => {
       const todoItem = document.createElement('li');
-      todoItem.innerHTML = todo.getTitle() + todo.getDescription() + todo.getDueDate();
+      todoItem.appendChild(TodoNode(todo));
       projectList.appendChild(todoItem);
     });
   projectDiv.appendChild(projectTitle);
