@@ -10,7 +10,7 @@ export const Todo = (t, de, du, p) => {
   const getTitle = () => title;
   const getDescription = () => description;
   //refactor dueDate to store Date object and return a format string to accessors!
-  const getDueDate = () => dueDate;
+  const getDueDate = () => format(dueDate, "MM-dd-yyyy");;
   const getPriority = () => priority;
 
   const printTodo = () => {

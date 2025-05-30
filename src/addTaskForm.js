@@ -1,4 +1,5 @@
 import {SelectedProject} from "./selectedProject";
+import {compareAsc, format} from "date-fns"
 //import { RootProject } from "./rootProject";
 import { Project } from "./project";
 import {Todo} from "./todo";
@@ -14,10 +15,8 @@ export const TaskForm = () => {
   addTodo.innerHTML = "Add Todo";
   addProject.innerHTML = "Add Project";
 
-  //declare input
-  const titleInput = document.createElement("input");
 
-  //button functionality
+  //project functionality
   addProject.addEventListener("click", () => {
     //it makes a new root folder :( 
     let sp = SelectedProject.getInstance();
@@ -32,18 +31,45 @@ export const TaskForm = () => {
     
   });
 
+  //todo functionality
   addTodo.addEventListener("click", () => {
     form.innerHTML = "";
     //4 inputs and 1 submit
     const title = document.createElement("input");
+    title.placeholder = "title";
     const description = document.createElement("input");
+    description.placeholder = "description";
     const date = document.createElement("input");
+    date.placeholder = "mm-dd-yyyy";
     const priority = document.createElement("input");
+    priority.placeholder = "0-10";
+
+    date.addEventListener('keypress', (e) => {
+      const date0 = date.value;
+      const size = date0.length;
+      //e.target.value = `${date0}-`;
+      console.log(`${e.key} pressed with length ${size}`);
+         if (isNaN(parseInt(e.key)) && e.key !== 'Backspace' && e.key !== 'Tab' && e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') 
+           e.preventDefault();
+      if(size == 2 || size == 5)
+      {
+        console.log("input -");
+        e.target.value = `${date0}-`;
+      }
+      
+    
+    });
+
+
     const addButton = document.createElement("button");
     addButton.innerHTML = "add";
     addButton.addEventListener("click", () =>{
-
-      sp.addTodo(Todo(title.value, description.value, date.value, priority.value));
+      const date0 = date.value;
+      const month = parseInt(date0.substring(0,2));
+      const day = parseInt(date0.substring(3,5));
+      const year = parseInt(date0.substring(6,10));
+      const newDate = new Date(year, month-1, day);
+      sp.addTodo(Todo(title.value, description.value, newDate, priority.value));
       DisplayController.display();
     });
     let sp = SelectedProject.getInstance();
@@ -61,8 +87,6 @@ export const TaskForm = () => {
   form.appendChild(addTodo);
   form.appendChild(addProject);
 
-  //append input
-  form.appendChild(titleInput);
 
   return form;
 };

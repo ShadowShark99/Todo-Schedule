@@ -22,13 +22,13 @@ const wakeUpTodo = Todo("Wake up", "at 8am", templateDate, 1);
 defaultProject.addTodo(wakeUpTodo);
 wakeUpTodo.changePriority(9);
 wakeUpTodo.toggleCompleted();
-defaultProject.addTodo(Todo("Brush Teeth", "Carefully", templateDate, 1));
-defaultProject.addTodo(Todo("Eat Lunch", "with your mouth", templateDate, 1));
-defaultProject.addTodo(Todo("go to sleep", "at 8am", 0, 1));
+defaultProject.addTodo(Todo("Brush Teeth", "Carefully", templateDate, 2));
+defaultProject.addTodo(Todo("Eat Lunch", "with your mouth", templateDate, 5));
+defaultProject.addTodo(Todo("go to sleep", "at 8am", templateDate, 1));
 
 const subProject = Project("Afternoon");
-subProject.addTodo(Todo("work on projects", "for 8 hours", 0, 1));
-subProject.addTodo(Todo("Call Victoria", "Hi victoria", 0, 1));
+subProject.addTodo(Todo("work on projects", "for 8 hours", templateDate, 1));
+subProject.addTodo(Todo("Call Victoria", "Hi victoria", templateDate, 1));
 defaultProject.addProject(subProject);
 
 defaultProject.removeCompleted();

@@ -25,8 +25,24 @@ body{
 }
 
 .task-form{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-around;
   position: absolute;
   color:blue;
+  left: 100px;
+  top: 10px;
+  height: 200px;
+  width: 360px;
+  padding: 10px;
+  border-radius: 10px;
+   background-color:rgb(169, 184, 239);
+  
+}
+
+.task-form > button{
+  padding: 10px;
+  background-color: rgb(139, 148, 185);
 }
 
 .selected{
