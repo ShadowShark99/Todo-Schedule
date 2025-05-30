@@ -4,6 +4,7 @@ import {compareAsc, format} from "date-fns"
 import { Project } from "./project";
 import {Todo} from "./todo";
 import { DisplayController } from "./display";
+import { ProjectForm } from "./projectForm";
 
 export const TaskForm = () => {
   const form = document.createElement("div");
@@ -19,14 +20,9 @@ export const TaskForm = () => {
   //project functionality
   addProject.addEventListener("click", () => {
     //it makes a new root folder :( 
-    let sp = SelectedProject.getInstance();
-    let newProject = Project(titleInput.value);
-    //automatically set to open
-    newProject.toggleOpen();
-    sp.addProject(newProject);
-    SelectedProject.setProject(newProject);
-    DisplayController.display();
-    //set SelectedProject to new folder?
+      form.innerHTML = "";
+      ProjectForm(form);
+      
     
     
   });
