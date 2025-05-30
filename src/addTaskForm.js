@@ -49,10 +49,16 @@ export const TaskForm = () => {
       const size = date0.length;
       if(size == 10)
         e.preventDefault();
-      //e.target.value = `${date0}-`;
-      console.log(`${e.key} pressed with length ${size}`);
       if (isNaN(parseInt(e.key)) && e.key !== 'Backspace' && e.key !== 'Tab' && e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') 
         e.preventDefault();
+      //prevent illegal months
+      if(size == 0 && parseInt(e.key) > 1)
+      {
+        e.target.value = `0${date0}`;
+      }
+      if(size == 1 && parseInt(e.key) > 2)
+        e.preventDefault();
+
       if(size == 2 || size == 5)
       {
         console.log("input -");
@@ -78,12 +84,17 @@ export const TaskForm = () => {
 
     const addButton = document.createElement("button");
     addButton.innerHTML = "add";
+
+    //updates todoList with new Todo if it is valid
     addButton.addEventListener("click", () =>{
       const date0 = date.value;
       const month = parseInt(date0.substring(0,2));
       const day = parseInt(date0.substring(3,5));
       const year = parseInt(date0.substring(6,10));
-      const newDate = new Date(year, month-1, day);
+      //current date
+      let newDate = new Date();
+      if(!isNaN(month) && !isNaN(day) && !isNaN(year))
+        newDate = new Date(year, month-1, day);
       sp.addTodo(Todo(title.value, description.value, newDate, priority.value));
       DisplayController.display();
     });
