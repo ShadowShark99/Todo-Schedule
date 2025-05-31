@@ -26,6 +26,7 @@ body{
 
 .task-form{
   display:flex;
+  flex:wrap;
   align-items: baseline;
   justify-content: space-around;
   position: absolute;
@@ -36,7 +37,9 @@ body{
   width: 360px;
   padding: 10px;
   border-radius: 10px;
-   background-color:rgb(169, 184, 239);
+  border-width: 3px;
+  border-color:azure;
+  background-color:rgb(169, 184, 239);
   
 }
 

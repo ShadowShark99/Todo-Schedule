@@ -64,11 +64,16 @@ export const TodoForm = (form) => {
       let newDate = new Date();
       if(!isNaN(month) && !isNaN(day) && !isNaN(year))
         newDate = new Date(year, month-1, day);
+      let sp = SelectedProject.getInstance();
       sp.addTodo(Todo(title.value, description.value, newDate, priority.value));
+      if(!sp.isOpen())
+      {
+        sp.toggleOpen();
+      }
       DisplayController.display();
       AddTask.press();
     });
-    let sp = SelectedProject.getInstance();
+    
     form.appendChild(title);
     form.appendChild(description);
     form.appendChild(date);

@@ -9,7 +9,7 @@ import { RootProject } from "./rootProject";
 export const SetUp = () => {
   const rootProject = RootProject.getInstance();
 let selectedProject = rootProject;
-const templateDate = format(new Date(2020, 1, 11), "yyyy-MM-dd");
+const templateDate = format(new Date(), "yyyy-MM-dd");
 const template = Todo("Title", "description", templateDate, 1);
 template.toggleCompleted();
 //todo1.printTodo();
@@ -39,5 +39,5 @@ rootProject.addProject(defaultProject);
 DisplayController.display(rootProject);
 //initiate the project selector which says what project the user will edit.
 
-alert("balls");
+alert("Welcome to your Todo List");
 };
