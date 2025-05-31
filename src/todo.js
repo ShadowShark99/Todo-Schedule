@@ -29,5 +29,5 @@ export const Todo = (t, de, du, p) => {
     return completed;
   };
 
-  return {printTodo, completed, changePriority, toggleCompleted, isComplete, getTitle, getDescription, getDueDate, getPriority};
+  return {printTodo, changePriority, toggleCompleted, isComplete, getTitle, getDescription, getDueDate, getPriority};
   };

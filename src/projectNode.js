@@ -5,8 +5,20 @@ import { TodoNode } from "./todoNode";
 //onlyOpen is whether it wants to display only open folders
 export const ProjectNode = (project, onlyOpen) => {
   const projectDiv = document.createElement('div');
+  projectDiv.classList.toggle("project");
   const projectTitle = document.createElement('h3');
   projectTitle.innerHTML = project.getProjectName();
+
+  //delete button
+  const deleteButton = document.createElement("button");
+  deleteButton.innerHTML = "x";
+  deleteButton.addEventListener("click", () => {
+    project.removeCompleted();
+    DisplayController.display();
+  });
+
+  projectDiv.appendChild(deleteButton);
+
   //add toggle open functionality to DOM element
   if(project == SelectedProject.getInstance())
   {
@@ -38,7 +50,8 @@ export const ProjectNode = (project, onlyOpen) => {
     project.getProjects().forEach((p) => {
       projectDiv.appendChild(ProjectNode(p, onlyOpen));
     });
-
+    
+  
 
   return projectDiv;
 };

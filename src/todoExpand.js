@@ -18,6 +18,6 @@ export const TodoExpand = () => {
   content.appendChild(description);
   content.appendChild(dueDate);
   content.appendChild(priority);
-  console.log("returning");
+  
   //return content;
 };

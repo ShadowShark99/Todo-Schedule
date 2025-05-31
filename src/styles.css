@@ -56,9 +56,24 @@ body{
   display: grid;
   grid-template-columns: 1fr 100px;
   align-items: center;
+  position: relative;
   
 }
 
 .todo-node > div{
   font-family: 'Courier New', Courier, monospace;
+}
+
+.todo-node > input{
+  position:absolute;
+  right: 265px;
+}
+
+.project{
+  position:relative;
+}
+
+.project > button{
+  position: absolute;
+  right:0px;
 }

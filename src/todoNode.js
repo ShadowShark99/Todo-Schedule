@@ -28,7 +28,20 @@ export const TodoNode = (todo) => {
   const dateDiv = document.createElement("div");
   dateDiv.innerHTML = dueDate;
   
+  //user input: complete and delete
+  const complete = document.createElement("input")
+  complete.type = "checkbox";
+  complete.checked = todo.isComplete();
+  complete.addEventListener("click", () => {
+    todo.toggleCompleted();
+    complete.checked = todo.isComplete();
+  });
+
+  
+
+
   todoNode.appendChild(titleDiv);
   todoNode.appendChild(dateDiv);
+  todoNode.appendChild(complete);
   return todoNode;
 };  
