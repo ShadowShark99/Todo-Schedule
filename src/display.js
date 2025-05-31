@@ -3,6 +3,7 @@ import {Todo} from "./todo"
 //import { SelectedProject} from "./selectedProject"
 import { RootProject } from "./rootProject";
 import { ProjectNode} from "./projectNode";
+import { TodoExpand } from "./todoExpand";
 
 //aggregation of display functionality
 export const DisplayController = (() => {
@@ -18,6 +19,10 @@ export const DisplayController = (() => {
   {
     return ProjectNode(project, true);
   };
+  
+  // const todoDisplay = () => {
+  //   return TodoExpand();
+  // };
 
   //default display will display folders that are open
   const display = () => {
@@ -26,6 +31,8 @@ export const DisplayController = (() => {
     const rp = RootProject.getInstance();
     projects.innerHTML = "";
     projects.appendChild(projectDisplayOpen(rp));
+    TodoExpand();
+
   };
   return {display};
 })();
