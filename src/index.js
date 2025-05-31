@@ -8,5 +8,5 @@ import { RootProject } from "./rootProject";
 import { SetUp} from "./setup";
 
 //implement add-task button functionality
-AddTask();
+AddTask.getInstance();
 SetUp();

@@ -1,6 +1,7 @@
 import { Project } from "./project";
 import { SelectedProject } from "./selectedProject";
 import { DisplayController } from "./display";
+import { AddTask } from "./addTask";
 
 export const ProjectForm = (form) => {
   //4 inputs and 1 submit
@@ -18,6 +19,7 @@ export const ProjectForm = (form) => {
     sp.addProject(newProject);
     SelectedProject.setProject(newProject);
     DisplayController.display();
+    AddTask.press();
     //set SelectedProject to new folder?
   });
   //projectForm.appendChild(title)
