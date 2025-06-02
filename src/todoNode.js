@@ -1,15 +1,10 @@
 import {Todo} from "./todo";
 import {SelectedTodo} from "./selectedTodo";
 import { DisplayController } from "./display";
+import { Color } from "./color"
 
 //prereq is priority should be number from 1-10
 // BASE (230,230,230) -> intervals: 230, 86, 46 -> to endpoint(0,144,184)!
-const Color = (priority) => {
-  let r = 230 - Math.round(priority * 230 / 10);
-  let g = 230 - Math.round(priority * 86 / 10);
-  let b = 230 - Math.round(priority * 46 / 10);
-  return {r,g,b};
-};
 
 
 export const TodoNode = (todo) => {

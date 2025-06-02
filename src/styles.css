@@ -77,3 +77,42 @@ body{
   position: absolute;
   right:0px;
 }
+
+.content{
+  display: grid;
+  padding: 10px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 50px 1fr;
+  grid-gap: 10px;
+}
+
+.content > div {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 2em;
+  display: grid;
+}
+
+.content > .title{
+  grid-column: 1 / 3;
+  
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+}
+
+.due-date{
+  grid-row: 2;
+  align-items: center;
+}
+.priority{
+  grid-row: 2;
+  align-items: center;
+}
+
+
+.description{
+  grid-row: 3;
+  grid-column: 1 / 3;
+}
