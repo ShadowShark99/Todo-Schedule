@@ -1,4 +1,6 @@
-import {Todo} from "./todo"
+import {Todo} from "./todo";
+import {SelectedTodo} from "./selectedTodo";
+import { DisplayController } from "./display";
 
 //prereq is priority should be number from 1-10
 // BASE (230,230,230) -> intervals: 230, 86, 46 -> to endpoint(0,144,184)!
@@ -22,6 +24,13 @@ export const TodoNode = (todo) => {
   const todoNode = document.createElement("div");
   todoNode.classList.toggle("todo-node");
   todoNode.setAttribute("style", `background-color: rgb(${color.r},${color.g},${color.b});`);
+
+  todoNode.addEventListener("click", () => {
+    SelectedTodo.setTodo(todo);
+    DisplayController.display();
+
+  });
+
   const titleDiv = document.createElement("div");
   titleDiv.innerHTML = title;
 
