@@ -10,7 +10,8 @@ export const RootProject = (() => {
   const getInstance = () => {
     if(rp == null)
     {
-      rp = Project("Username");
+      let name = prompt("Please enter your name: ");
+      rp = (name) ? Project(name) : Project("Username");
       //root project should always remain open
       rp.toggleOpen();
     }

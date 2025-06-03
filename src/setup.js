@@ -7,6 +7,8 @@ import {AddTask} from "./addTask"
 import { RootProject } from "./rootProject";
 
 export const SetUp = () => {
+  
+  
   const rootProject = RootProject.getInstance();
 let selectedProject = rootProject;
 const templateDate = format(new Date(), "yyyy-MM-dd");
