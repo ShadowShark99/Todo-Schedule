@@ -26,17 +26,17 @@ body{
 }
 
 .task-form{
-  display:flex;
-  flex-wrap:wrap;
-  align-items: baseline;
-  justify-content: flex-start;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 50px;
+  justify-items: start;
   position: absolute;
   z-index: 1;
   color:blue;
   left: 100px;
   top: 10px;
   height: 200px;
-  width: 360px;
+  width: 300px;
   padding: 10px;
   border-radius: 10px;
   border-width: 3px;
@@ -45,7 +45,25 @@ body{
   
 }
 
+label{
+  vertical-align: top;
+  grid-column: 1;
+  color:black
+}
+
+.task-form > input{
+  grid-column: 2;
+}
+
 .task-form > button{
+  grid-area: 5 / 2;
+  justify-self: center;
+  align-self: center;
+  padding: 10px;
+  background-color: rgb(139, 148, 185);
+}
+.task-form > button.start{
+  grid-area: 1;
   padding: 10px;
   background-color: rgb(139, 148, 185);
 }

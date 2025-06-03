@@ -14,6 +14,8 @@ export const TaskForm = () => {
   //buttons
   const addTodo = document.createElement("button");
   const addProject = document.createElement("button");
+  addTodo.classList.toggle("start");
+  addProject.classList.toggle("start");
   addTodo.innerHTML = "Add Todo";
   addProject.innerHTML = "Add Project";
 

@@ -4,14 +4,37 @@ import { Todo } from "./todo";
 import { DisplayController } from "./display";
 
 export const TodoForm = (form) => {
-  const title = document.createElement("input");
+    const title = document.createElement("input");
     title.placeholder = "title";
+    title.setAttribute("id", "title");
+
+    const title0 = document.createElement("label");
+    title0.innerHTML = "Enter Title: ";
+    title0.setAttribute("for", "title");
+
     const description = document.createElement("input");
     description.placeholder = "description";
+    description.setAttribute("id", "description")
+
+    const description0 = document.createElement("label");
+    description0.innerHTML = "Enter Description: ";
+    description0.setAttribute("for", "description");
+
     const date = document.createElement("input");
     date.placeholder = "mm-dd-yyyy";
+    date.setAttribute("id","date");
+
+    const date0 = document.createElement("label");
+    date0.innerHTML = "Enter Date: ";
+    date0.setAttribute("for", "date");
+
     const priority = document.createElement("input");
     priority.placeholder = "0-10";
+    priority.setAttribute("id", "priority");
+
+    const priority0 = document.createElement("label");
+    priority0.innerHTML = "Enter Priorioty: ";
+    priority0.setAttribute("for", "priority");
 
     date.addEventListener('keypress', (e) => {
       const date0 = date.value;
@@ -74,9 +97,17 @@ export const TodoForm = (form) => {
       AddTask.press();
     });
     
+    form.appendChild(title0);
     form.appendChild(title);
+    
+    form.appendChild(description0);
     form.appendChild(description);
+    
+    form.appendChild(date0);
     form.appendChild(date);
+    
+    form.appendChild(priority0);
     form.appendChild(priority);
+    
     form.appendChild(addButton);
 };
