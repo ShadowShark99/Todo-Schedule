@@ -15,7 +15,7 @@ body{
 .sidebar{
   padding: 20px;
   background-color: aliceblue;
-  position: relative;
+  
   overflow: auto;
 }
 
@@ -27,10 +27,11 @@ body{
 
 .task-form{
   display:flex;
-  flex:wrap;
+  flex-wrap:wrap;
   align-items: baseline;
-  justify-content: space-around;
+  justify-content: flex-start;
   position: absolute;
+  z-index: 1;
   color:blue;
   left: 100px;
   top: 10px;
@@ -72,6 +73,16 @@ body{
 
 .project{
   position:relative;
+}
+
+.title-form{
+  background-color: whitesmoke;
+  width: 100%;
+  font-size: inherit;
+  font-family: inherit;
+  padding: 4px;
+  box-sizing: border-box;
+
 }
 
 .project > button{

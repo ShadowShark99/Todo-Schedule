@@ -2,12 +2,19 @@ import {Project} from "./project"
 import { DisplayController } from "./display";
 import { SelectedProject } from "./selectedProject";
 import { TodoNode } from "./todoNode";
+import { TitleForm } from "./projectTitleForm";
+
 //onlyOpen is whether it wants to display only open folders
 export const ProjectNode = (project, onlyOpen) => {
   const projectDiv = document.createElement('div');
   projectDiv.classList.toggle("project");
   const projectTitle = document.createElement('h3');
   projectTitle.innerHTML = project.getProjectName();
+
+  projectTitle.addEventListener("dblclick", () => {
+    projectTitle.appendChild(TitleForm());
+    console.log("double clicked");
+  });
 
   //delete button
   const deleteButton = document.createElement("button");
