@@ -1,5 +1,5 @@
 import {TaskForm} from "./addTaskForm"
-
+import { DisplayController } from "./display";
 const AddTaskSetUp = () => {
 
 
@@ -13,22 +13,18 @@ export const AddTask = (() => {
   let pressed = false;
   addTaskButton.addEventListener("click", () => {
     //toggle pressed
+    DisplayController.display();
     press();
+
     
   });
   //use only once for construction
   const getInstance = () => {
-    if(setup == null)
-    {
-      setup = "cool";
-      
-      
-      //only set up once
-      
-    }
-    return setup;
+    
   };
   
+  const isPressed = () => pressed;
+
   const press = () => {
     pressed = !pressed;
     console.log("pressed");
@@ -37,5 +33,5 @@ export const AddTask = (() => {
     else
       buttonParent.removeChild(addTaskButton.nextSibling);
   };
-  return {press,getInstance};
+  return {press,getInstance, isPressed};
 })();

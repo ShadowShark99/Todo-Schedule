@@ -65,9 +65,15 @@ export const Project = (name) => {
       }
     }
 
-    projects.forEach((project) => {
+    for(let i = 0; i < projects.length; i++)
+    {
+      let project = projects[i];
       project.removeCompleted();
-    });
+      if(project.todos.length === 0)
+      {
+        projects.splice(i--,1);
+      }
+    }
   };
 
   //call recursiveClose on child projects

@@ -99,9 +99,11 @@ label{
   font-size: inherit;
   font-family: inherit;
   padding: 4px;
+  width: auto;
+  height: 25px;
   z-index: 2;
   box-sizing: border-box;
-  position: absolute;
+  position: fixed;
 
 }
 
