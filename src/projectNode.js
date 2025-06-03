@@ -2,7 +2,6 @@ import {Project} from "./project"
 import { DisplayController } from "./display";
 import { SelectedProject } from "./selectedProject";
 import { TodoNode } from "./todoNode";
-import { TitleForm } from "./projectTitleForm";
 
 //onlyOpen is whether it wants to display only open folders
 export const ProjectNode = (project, onlyOpen) => {
@@ -11,26 +10,8 @@ export const ProjectNode = (project, onlyOpen) => {
   const projectTitle = document.createElement('h3');
   projectTitle.innerHTML = project.getProjectName();
 
-  projectTitle.addEventListener("dblclick", () => {
-    projectTitle.appendChild(TitleForm());
-    console.log("double clicked");
-  });
-
-  //delete button
-  const deleteButton = document.createElement("button");
-  deleteButton.innerHTML = "x";
-  deleteButton.addEventListener("click", () => {
-    project.removeCompleted();
-    DisplayController.display();
-  });
-
-  projectDiv.appendChild(deleteButton);
-
   //add toggle open functionality to DOM element
-  if(project == SelectedProject.getInstance())
-  {
-    projectTitle.classList.toggle("selected");
-  }
+  
   projectTitle.addEventListener("click", () => {
     project.toggleOpen();
 
@@ -39,6 +20,47 @@ export const ProjectNode = (project, onlyOpen) => {
     SelectedProject.setProject(project);
     DisplayController.display();
   });
+
+  const sp = SelectedProject.getInstance();
+  if(project == sp)
+  {
+    projectTitle.classList.toggle("selected");
+
+    //edit button
+    const changeName = document.createElement("button");
+  changeName.classList.toggle("change");
+  changeName.innerHTML = "edit";
+
+  changeName.addEventListener("click", (e) => {
+    //TitleForm(projectTitle);
+    const titleInput = document.createElement("input");
+    titleInput.classList.toggle("title-form");
+    
+    titleInput.addEventListener("keypress", (e) => {
+      if(e.key === 'Enter')
+      {
+        sp.setProjectName(titleInput.value);
+        DisplayController.display();
+      }
+    });
+    projectTitle.appendChild(titleInput);
+    titleInput.focus();
+  });
+
+  projectDiv.appendChild(changeName);
+  }
+  
+
+  //delete button
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.toggle("delete");
+  deleteButton.innerHTML = "x";
+  deleteButton.addEventListener("click", () => {
+    project.removeCompleted();
+    DisplayController.display();
+  });
+
+  projectDiv.appendChild(deleteButton);
 
 
   const projectList = document.createElement('ul');

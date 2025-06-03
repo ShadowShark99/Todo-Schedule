@@ -4,7 +4,7 @@ export const Project = (name) => {
   let todos = [];
   //other projects
   let projects = [];
-  const projectName = name;
+  let projectName = name;
 
   const getProjectName = () => projectName;
   const getTodos = () => todos;
@@ -13,6 +13,10 @@ export const Project = (name) => {
   //all projects should be closed initially
   let open = false;
   const isOpen = () => open;
+
+  const setProjectName = (newName) => {
+    projectName = newName;
+  };
 
   const addTodo = (todo) => {
     todos.push(todo);
@@ -87,6 +91,6 @@ export const Project = (name) => {
 
   };
 
-  return {todos, addTodo, addProject,printProject, printNotCompleted, removeCompleted, getProjectName, getTodos, getProjects, isOpen,toggleOpen, recursiveClose};
+  return {todos, addTodo, addProject,printProject, printNotCompleted, removeCompleted, getProjectName, getTodos, getProjects, isOpen,toggleOpen, recursiveClose, setProjectName};
 };
 

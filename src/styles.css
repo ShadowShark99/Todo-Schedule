@@ -81,11 +81,18 @@ body{
   font-size: inherit;
   font-family: inherit;
   padding: 4px;
+  z-index: 2;
   box-sizing: border-box;
+  position: absolute;
 
 }
 
-.project > button{
+.project > .change{
+  position: absolute;
+  right: 10px;
+}
+
+.project > .delete{
   position: absolute;
   right:0px;
 }
