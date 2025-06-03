@@ -25,6 +25,12 @@ body{
   background-color: rgb(97, 122, 133);
 }
 
+button:hover{
+  color:aliceblue;
+  border:  solid;
+  box-sizing: border-box;
+}
+
 .task-form{
   display:grid;
   grid-template-columns: 1fr 1fr;
