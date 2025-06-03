@@ -39,7 +39,7 @@ export const ProjectNode = (project, onlyOpen) => {
     titleInput.addEventListener("keypress", (e) => {
       if(e.key === 'Enter')
       {
-        sp.setProjectName(titleInput.value);
+        sp.setProjectName(`${titleInput.value ? titleInput.value : "project"}`);
         DisplayController.display();
       }
     });
