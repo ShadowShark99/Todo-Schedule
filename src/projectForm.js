@@ -6,7 +6,6 @@ import { RootProject } from "./rootProject";
 
 export const ProjectForm = (form) => {
   //4 inputs and 1 submit
-  const projectForm = document.createElement("div");
   const title = document.createElement("input");
   title.placeholder = "Project Name: ";
 
@@ -21,7 +20,10 @@ export const ProjectForm = (form) => {
     SelectedProject.setProject(newProject);
 
     //store project after adding a new project
-    localStorage.setItem("rp", JSON.stringify(RootProject.getInstance().stringify()));
+    localStorage.setItem(
+      "rp",
+      JSON.stringify(RootProject.getInstance().stringify()),
+    );
 
     DisplayController.display();
     AddTask.press();
@@ -30,7 +32,6 @@ export const ProjectForm = (form) => {
   //projectForm.appendChild(title)
   //projectForm.appendChild(addProjectButton);
   //return projectForm;
-  form.appendChild(title)
+  form.appendChild(title);
   form.appendChild(addProjectButton);
-  
 };

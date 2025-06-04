@@ -1,11 +1,6 @@
 import { Project } from "./project";
 import { Extract } from "./extract";
-import { SetUp } from "./setup";
 import { Instantiate } from "./instantiate";
-const RP = (project) => {
-  let rp = project;
-  return rp;
-}
 
 export const RootProject = (() => {
   let rp = null;
@@ -13,22 +8,17 @@ export const RootProject = (() => {
   //todoForm and projectForm
 
   let instanceCallCount = 0;
-  
-  
+
   const getInstance = () => {
-    if(rp == null)
-    {
-      if(localStorage.getItem("rp"))
-      { 
+    if (rp == null) {
+      if (localStorage.getItem("rp")) {
         //console.log(localStorage.getItem("rp")); //is still valid string
         rp = Extract.projectExtract(localStorage.getItem("rp"));
         //not valid extract
         console.log(rp.stringify());
-      }
-      else
-      {
+      } else {
         let name = prompt("Please enter your name: ");
-        rp = (name) ? Project(name) : Project("Username");
+        rp = name ? Project(name) : Project("Username");
         //root project should always remain open
         rp.toggleOpen();
         console.log("instantiating first time");
@@ -37,16 +27,13 @@ export const RootProject = (() => {
 
         instanceCallCount++;
       }
-      
     }
-    if(rp)
-    {
-      
+    if (rp) {
       //console.log(rp.stringify());
     }
     return rp;
   };
 
   const getCount = () => instanceCallCount;
-  return{getInstance,getCount};
+  return { getInstance, getCount };
 })();

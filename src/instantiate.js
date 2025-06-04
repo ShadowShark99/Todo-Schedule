@@ -1,10 +1,7 @@
 import "./styles.css";
-import {Todo} from "./todo";
-import {Project} from "./project";
-import {compareAsc, format} from "date-fns"
-import {DisplayController} from "./display"
-import {AddTask} from "./addTask"
-import { RootProject } from "./rootProject";
+import { Todo } from "./todo";
+import { Project } from "./project";
+import { format } from "date-fns";
 
 export const Instantiate = (rootProject) => {
   console.log("Setting up");

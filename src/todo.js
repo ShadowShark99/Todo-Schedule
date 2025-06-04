@@ -1,4 +1,4 @@
-import {compareAsc, format} from "date-fns"
+import { format } from "date-fns";
 
 export const Todo = (t, de, du, p) => {
   const title = t;
@@ -10,7 +10,7 @@ export const Todo = (t, de, du, p) => {
   const getTitle = () => title;
   const getDescription = () => description;
   //refactor dueDate to store Date object and return a format string to accessors!
-  const getDueDate = () => format(dueDate, "MM-dd-yyyy");;
+  const getDueDate = () => format(dueDate, "MM-dd-yyyy");
   const getPriority = () => priority;
 
   const printTodo = () => {
@@ -21,7 +21,7 @@ export const Todo = (t, de, du, p) => {
     priority = newPriority;
   };
 
-  const toggleCompleted = () =>{
+  const toggleCompleted = () => {
     completed = !completed;
   };
 
@@ -32,8 +32,17 @@ export const Todo = (t, de, du, p) => {
   const stringify = () => {
     let ret = `[${title},${description},${getDueDate()},${priority}]`;
     return ret;
-    
-  }
-
-  return {stringify, printTodo, changePriority, toggleCompleted, isComplete, getTitle, getDescription, getDueDate, getPriority};
   };
+
+  return {
+    stringify,
+    printTodo,
+    changePriority,
+    toggleCompleted,
+    isComplete,
+    getTitle,
+    getDescription,
+    getDueDate,
+    getPriority,
+  };
+};

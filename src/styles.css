@@ -1,44 +1,43 @@
-*{
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: 0px;
 }
 
-body{
+body {
   height: 100vh;
   width: 100vw;
   display: grid;
   grid-template-columns: 300px 1fr;
-
 }
 
-.sidebar{
+.sidebar {
   padding: 20px;
   background-color: aliceblue;
-  
+
   overflow: auto;
 }
 
-.add-task{
+.add-task {
   padding: 10px;
   border-radius: 5px;
   background-color: rgb(97, 122, 133);
 }
 
-button:hover{
-  color:aliceblue;
-  border:  solid;
+button:hover {
+  color: aliceblue;
+  border: solid;
   box-sizing: border-box;
 }
 
-.task-form{
-  display:grid;
+.task-form {
+  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 50px;
   justify-items: start;
   position: absolute;
   z-index: 1;
-  color:blue;
+  color: blue;
   left: 100px;
   top: 10px;
   height: 200px;
@@ -46,60 +45,58 @@ button:hover{
   padding: 10px;
   border-radius: 10px;
   border-width: 3px;
-  border-color:azure;
-  background-color:rgb(169, 184, 239);
-  
+  border-color: azure;
+  background-color: rgb(169, 184, 239);
 }
 
-label{
+label {
   vertical-align: top;
   grid-column: 1;
-  color:black
+  color: black;
 }
 
-.task-form > input{
+.task-form > input {
   grid-column: 2;
 }
 
-.task-form > button{
+.task-form > button {
   grid-area: 5 / 2;
   justify-self: center;
   align-self: center;
   padding: 10px;
   background-color: rgb(139, 148, 185);
 }
-.task-form > button.start{
+.task-form > button.start {
   grid-area: 1;
   padding: 10px;
   background-color: rgb(139, 148, 185);
 }
 
-.selected{
+.selected {
   border: 1px solid rgb(97, 122, 133);
 }
 
-.todo-node{
+.todo-node {
   display: grid;
   grid-template-columns: 1fr 100px;
   align-items: center;
   position: relative;
-  
 }
 
-.todo-node > div{
-  font-family: 'Courier New', Courier, monospace;
+.todo-node > div {
+  font-family: "Courier New", Courier, monospace;
 }
 
-.todo-node > input{
-  position:absolute;
+.todo-node > input {
+  position: absolute;
   right: 265px;
 }
 
-.project{
-  position:relative;
+.project {
+  position: relative;
 }
 
-.title-form{
+.title-form {
   background-color: whitesmoke;
   width: 100%;
   font-size: inherit;
@@ -110,20 +107,19 @@ label{
   z-index: 2;
   box-sizing: border-box;
   position: fixed;
-
 }
 
-.project > .change{
+.project > .change {
   position: absolute;
   right: 10px;
 }
 
-.project > .delete{
+.project > .delete {
   position: absolute;
-  right:0px;
+  right: 0px;
 }
 
-.content{
+.content {
   display: grid;
   padding: 10px;
   grid-template-columns: 1fr 1fr;
@@ -139,25 +135,24 @@ label{
   display: grid;
 }
 
-.content > .title{
+.content > .title {
   grid-column: 1 / 3;
-  
+
   justify-content: center;
   align-items: center;
   font-size: 4em;
 }
 
-.due-date{
+.due-date {
   grid-row: 2;
   align-items: center;
 }
-.priority{
+.priority {
   grid-row: 2;
   align-items: center;
 }
 
-
-.description{
+.description {
   grid-row: 3;
   grid-column: 1 / 3;
 }

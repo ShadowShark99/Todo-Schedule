@@ -1,4 +1,3 @@
-import { Project } from "./project";
 import { RootProject } from "./rootProject";
 
 export const SelectedProject = (() => {
@@ -6,8 +5,7 @@ export const SelectedProject = (() => {
 
   //public
   const getInstance = () => {
-    if(project == null)
-    {
+    if (project == null) {
       project = RootProject.getInstance();
     }
     return project;
@@ -15,6 +13,6 @@ export const SelectedProject = (() => {
   const setProject = (newProject) => {
     project = newProject;
   };
-  
-  return{setProject, getInstance};
+
+  return { setProject, getInstance };
 })();

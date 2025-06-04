@@ -1,5 +1,4 @@
 import { SelectedTodo } from "./selectedTodo";
-import { Todo } from "./todo";
 import { Color } from "./color";
 
 export const TodoExpand = () => {
@@ -23,12 +22,15 @@ export const TodoExpand = () => {
   priority.classList.toggle("priority");
 
   const color = Color(todo.getPriority());
-  content.setAttribute("style", `background-color: rgb(${color.r},${color.g},${color.b});`);
+  content.setAttribute(
+    "style",
+    `background-color: rgb(${color.r},${color.g},${color.b});`,
+  );
 
   content.appendChild(title);
   content.appendChild(dueDate);
   content.appendChild(priority);
   content.appendChild(description);
-  
+
   //return content;
 };

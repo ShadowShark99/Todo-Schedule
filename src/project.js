@@ -1,5 +1,3 @@
-import {Todo} from "./todo";
-
 export const Project = (name) => {
   let todos = [];
   //other projects
@@ -24,7 +22,7 @@ export const Project = (name) => {
 
   const addProject = (project) => {
     projects.push(project);
-  }
+  };
 
   const printProject = () => {
     console.log(`Project Title: ${projectName}`);
@@ -40,8 +38,7 @@ export const Project = (name) => {
   const printNotCompleted = () => {
     console.log(`Project Title: ${projectName}`);
     todos.forEach((todo) => {
-      if(!todo.isComplete())
-        todo.printTodo();
+      if (!todo.isComplete()) todo.printTodo();
     });
 
     projects.forEach((project) => {
@@ -55,29 +52,25 @@ export const Project = (name) => {
     //   if(todo.isComplete())
     //       todos.splice(i, 1);
     // });
-    for (let i = 0; i < todos.length; i++)
-    {
+    for (let i = 0; i < todos.length; i++) {
       const todo = todos[i];
-      if(todo.isComplete())
-      {
+      if (todo.isComplete()) {
         //decrement to prevent skipping index
         todos.splice(i--, 1);
       }
     }
 
-    for(let i = 0; i < projects.length; i++)
-    {
+    for (let i = 0; i < projects.length; i++) {
       let project = projects[i];
       project.removeCompleted();
-      if(project.todos.length === 0)
-      {
-        projects.splice(i--,1);
+      if (project.todos.length === 0) {
+        projects.splice(i--, 1);
       }
     }
   };
 
   //call recursiveClose on child projects
-  const recursiveClose = ()=>{
+  const recursiveClose = () => {
     open = false;
     projects.forEach((project) => {
       project.recursiveClose();
@@ -85,16 +78,12 @@ export const Project = (name) => {
   };
 
   //it is important to close all other folders in environment
-  const toggleOpen = () =>{
-    if(open)
-    {
+  const toggleOpen = () => {
+    if (open) {
       recursiveClose();
-    }
-    else
-    {
+    } else {
       open = true;
     }
-
   };
 
   const stringify = () => {
@@ -111,6 +100,20 @@ export const Project = (name) => {
     return ret;
   };
 
-  return {stringify, todos, addTodo, addProject,printProject, printNotCompleted, removeCompleted, getProjectName, getTodos, getProjects, isOpen,toggleOpen, recursiveClose, setProjectName};
+  return {
+    stringify,
+    todos,
+    addTodo,
+    addProject,
+    printProject,
+    printNotCompleted,
+    removeCompleted,
+    getProjectName,
+    getTodos,
+    getProjects,
+    isOpen,
+    toggleOpen,
+    recursiveClose,
+    setProjectName,
+  };
 };
-

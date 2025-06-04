@@ -1,9 +1,3 @@
-import {SelectedProject} from "./selectedProject";
-import {compareAsc, format} from "date-fns"
-//import { RootProject } from "./rootProject";
-import { Project } from "./project";
-import {Todo} from "./todo";
-import { DisplayController } from "./display";
 import { ProjectForm } from "./projectForm";
 import { TodoForm } from "./todoForm";
 
@@ -19,15 +13,11 @@ export const TaskForm = () => {
   addTodo.innerHTML = "Add Todo";
   addProject.innerHTML = "Add Project";
 
-
   //project functionality
   addProject.addEventListener("click", () => {
-    //it makes a new root folder :( 
-      form.innerHTML = "";
-      ProjectForm(form);
-      
-    
-    
+    //it makes a new root folder :(
+    form.innerHTML = "";
+    ProjectForm(form);
   });
 
   //todo functionality
@@ -35,15 +25,11 @@ export const TaskForm = () => {
     form.innerHTML = "";
     //4 inputs and 1 submit
     TodoForm(form);
-    
-
-
   });
 
   //add buttons
   form.appendChild(addTodo);
   form.appendChild(addProject);
-
 
   return form;
 };
