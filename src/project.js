@@ -97,6 +97,20 @@ export const Project = (name) => {
 
   };
 
-  return {todos, addTodo, addProject,printProject, printNotCompleted, removeCompleted, getProjectName, getTodos, getProjects, isOpen,toggleOpen, recursiveClose, setProjectName};
+  const stringify = () => {
+    let ret = `${projectName}[`;
+    todos.forEach((todo) => {
+      ret = ret + todo.stringify();
+    });
+    ret += "]";
+    ret += "[";
+    projects.forEach((project) => {
+      ret += project.stringify();
+    });
+    ret += "]";
+    return ret;
+  };
+
+  return {stringify, todos, addTodo, addProject,printProject, printNotCompleted, removeCompleted, getProjectName, getTodos, getProjects, isOpen,toggleOpen, recursiveClose, setProjectName};
 };
 

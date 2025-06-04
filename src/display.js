@@ -26,9 +26,15 @@ export const DisplayController = (() => {
 
   //default display will display folders that are open
   const display = () => {
+
     //always start from the root
     const projects = document.querySelector(".projects");
     const rp = RootProject.getInstance();
+
+    //store before dipslaying
+    localStorage.setItem("rp", JSON.stringify(rp.stringify()));
+
+    console.log(JSON.stringify(rp.stringify()));
     projects.innerHTML = "";
     projects.appendChild(projectDisplayOpen(rp));
     TodoExpand();

@@ -1,5 +1,6 @@
 import { AddTask } from "./addTask";
 import { SelectedProject } from "./selectedProject";
+import { RootProject } from "./rootProject";
 import { Todo } from "./todo";
 import { DisplayController } from "./display";
 
@@ -93,6 +94,10 @@ export const TodoForm = (form) => {
       {
         sp.toggleOpen();
       }
+
+      //store updated object after adding todo
+      localStorage.setItem("rp", JSON.stringify(RootProject.getInstance().stringify()));
+
       DisplayController.display();
       AddTask.press();
     });

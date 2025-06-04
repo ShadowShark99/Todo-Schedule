@@ -29,5 +29,11 @@ export const Todo = (t, de, du, p) => {
     return completed;
   };
 
-  return {printTodo, changePriority, toggleCompleted, isComplete, getTitle, getDescription, getDueDate, getPriority};
+  const stringify = () => {
+    let ret = `[${title},${description},${getDueDate()},${priority}]`;
+    return ret;
+    
+  }
+
+  return {stringify, printTodo, changePriority, toggleCompleted, isComplete, getTitle, getDescription, getDueDate, getPriority};
   };
