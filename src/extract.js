@@ -5,16 +5,15 @@ import { format } from "date-fns";
 export const Extract = (() => {
   const todoExtract = (str) => {
     const arr = str.split(",");
-    console.log(arr);
+    //console.log(arr);
     const year = arr[2].substr(6,4);
     const month = arr[2].substr(0,2);
     const day = arr[2].substr(3,2);
-    console.log(month);
+    //console.log(month);
     const dueDate = new Date(parseInt(year)
                             ,parseInt(month-1)
                             ,parseInt(day));
     console.log(dueDate);
-    //console.log(Todo(arr[0],arr[1],dueDate,parseInt(arr[3])));
     return Todo(arr[0],arr[1],dueDate,parseInt(arr[3]));
   };
   const projectExtract = (str) => {
@@ -38,7 +37,6 @@ export const Extract = (() => {
         title = str.substr(titleStart, i - titleStart);
         stage = 1;
         project = Project(title);
-        console.log(title);
       }
       else if(stage == 1)
       {
@@ -47,13 +45,14 @@ export const Extract = (() => {
         {
           stage = 2;
           //i++; //skip first one
-          projectStartIndex = ++i; //start with first project;
-          continue;
+          projectStartIndex = ++i+1; //start with first project;
+          //i moved to letter
+          
 
         }
         else//"["
         {
-          console.log(str.substr(0,i));//print before [
+          //console.log(str.substr(0,i));//print before [
           const end = str.indexOf("]", i);
           project.addTodo(todoExtract(str.substr(i+1, end - i - 1)));
           i = end;
@@ -61,7 +60,8 @@ export const Extract = (() => {
       }
       else if(stage == 2)
       {
-        //should start on []
+        //example Username[][poop[][]]
+        //should start on [
         if(str[i] == "[")
         {
           stack++;

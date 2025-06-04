@@ -31,10 +31,13 @@ export const DisplayController = (() => {
     const projects = document.querySelector(".projects");
     const rp = RootProject.getInstance();
 
+    //print before storing
+    console.log(JSON.stringify(rp.stringify()));
+
     //store before dipslaying
     localStorage.setItem("rp", JSON.stringify(rp.stringify()));
 
-    console.log(JSON.stringify(rp.stringify()));
+    
     projects.innerHTML = "";
     projects.appendChild(projectDisplayOpen(rp));
     TodoExpand();

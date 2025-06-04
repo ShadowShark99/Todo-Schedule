@@ -89,7 +89,8 @@ export const TodoForm = (form) => {
       if(!isNaN(month) && !isNaN(day) && !isNaN(year))
         newDate = new Date(year, month-1, day);
       let sp = SelectedProject.getInstance();
-      sp.addTodo(Todo(title.value, description.value, newDate, priority.value));
+      let priorityIsNum = (priority.value) ? priority.value : 0;
+      sp.addTodo(Todo(title.value, description.value, newDate, priorityIsNum));
       if(!sp.isOpen())
       {
         sp.toggleOpen();

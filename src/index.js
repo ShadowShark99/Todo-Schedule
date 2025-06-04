@@ -8,5 +8,6 @@ import { RootProject } from "./rootProject";
 import { SetUp} from "./setup";
 
 //implement add-task button functionality
+console.log(localStorage.getItem("rp"));
 AddTask;
 SetUp();
